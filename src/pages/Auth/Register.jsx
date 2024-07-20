@@ -108,7 +108,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!formData.pro_email && !formData.newPassword) {
+      if (!formData.pro_email ||!formData.newPassword ) {
         toast.warning("Please enter all the required fields", {
           position: "top-left",
           autoClose: 1500,
@@ -132,20 +132,7 @@ export default function Register() {
           theme: "light",
         });
         return;
-      } else if (!formData.newPassword) {
-        toast.warning("Please enter your password", {
-          position: "top-left",
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        return;
-      }
-  
+      } 
       // Check if the user is already registered and verified
       if (verified) {
         // Proceed with registration
